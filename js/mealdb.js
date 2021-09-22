@@ -1,4 +1,16 @@
-document.getElementById('error-messege').style.display='none';
+const searchBtn = document.getElementById('button-search');
+const searchInput = document.getElementById('search-field');
+
+searchInput.addEventListener("keypress", function (event) {
+   // event.preventDefault();
+    if (event.keyCode == 13) 
+        {
+            searchBtn.click();
+        }
+});
+
+
+document.getElementById('error-messege').style.display = 'none';
 
 const searchFood = () => {
     const searchField = document.getElementById('search-field');
@@ -6,7 +18,7 @@ const searchFood = () => {
     //clear data
     searchField.value = '';
 
-    document.getElementById('error-messege').style.display='none';
+    document.getElementById('error-messege').style.display = 'none';
 
     const emptyText = document.getElementById('empty-text');
     emptyText.textContent = '';
@@ -29,8 +41,8 @@ const searchFood = () => {
             .catch(error => displayError(error));
     }
 }
-const displayError =error=>{
-    document.getElementById('error-messege').style.display='block';
+const displayError = error => {
+    document.getElementById('error-messege').style.display = 'block';
 }
 
 const displaySearchResult = meals => {
@@ -86,4 +98,5 @@ const displayMealDetail = meal => {
    </div>
    `;
     mealDetails.appendChild(div);
+
 }
